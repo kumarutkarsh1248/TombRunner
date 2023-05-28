@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: rgb(220, 229, 238);
+    justify-content: center;
+    text-align: center;
+}
+#game_box{
+    height: 72vw;
+    width: 60vw;
+    background-color: rgb(241, 241, 239);
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(36, 1fr);
+}
+.block{
+    background-color: rgb(195, 224, 6);
+    border-radius: 30%;
+    font-size: 1em;
+    overflow: hidden;
+}
+.submit{
+    height: 30px;
+    width: 100%;
+    display: block;
+}
+.main_block{
+    background-color: black;
+}
+.refrence_block{
+    background-color: rgb(208, 99, 99);
+}
+.dog{
+    background-color: red;
+    border-radius: 100%;
+}
