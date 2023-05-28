@@ -48,3 +48,22 @@ canvas{
     background-color: #29f4ea;
     border-radius: 100%;
 }
+
+
+@media(max-width: 1000px){
+    #game_box{
+        height: 600vw;
+        width: 100vw;
+        /* background-color: rgb(151, 165, 42); */
+        display: grid;
+        grid-template-columns: repeat(30, 1fr);
+        grid-template-rows: repeat(180, 1fr);
+    }
+    canvas{
+        height: 600vw;
+        width: 100vw;
+        position:absolute;
+        background: linear-gradient(rgb(0, 0, 0), rgb(61, 60, 60), rgb(0, 0, 0));
+        z-index:-1;
+    }
+}
