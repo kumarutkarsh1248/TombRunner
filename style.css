@@ -50,7 +50,7 @@ canvas{
 }
 
 
-@media(max-width: 1000px){
+@media(max-width: 1100px){
     #game_box{
         height: 600vw;
         width: 100vw;
