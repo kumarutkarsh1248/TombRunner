@@ -205,12 +205,42 @@ function checkDirection() {
 }
 
 document.addEventListener('touchstart', e => {
+    if(dog.y>=0 && dog.y<=36){
+        window.scrollTo(0, cell*18);
+    }
+    if(dog.y>=36 && dog.y<=72){
+        window.scrollTo(0, cell*54);
+    }
+    if(dog.y>=72 && dog.y<=108){
+        window.scrollTo(0, cell*90);
+    }
+    if(dog.y>=108 && dog.y<=144){
+        window.scrollTo(0, cell*120);
+    }
+    if(dog.y>=144 && dog.y<=180){
+        window.scrollTo(0, cell*162);
+    }
   touchstartX = e.changedTouches[0].screenX
   touchstartY = e.changedTouches[0].screenY
 
 })
 
 document.addEventListener('touchend', e => {
+    if(dog.y>=0 && dog.y<=36){
+        window.scrollTo(0, cell*18);
+    }
+    if(dog.y>=36 && dog.y<=72){
+        window.scrollTo(0, cell*54);
+    }
+    if(dog.y>=72 && dog.y<=108){
+        window.scrollTo(0, cell*90);
+    }
+    if(dog.y>=108 && dog.y<=144){
+        window.scrollTo(0, cell*120);
+    }
+    if(dog.y>=144 && dog.y<=180){
+        window.scrollTo(0, cell*162);
+    }
   touchendX = e.changedTouches[0].screenX
   touchendY = e.changedTouches[0].screenY
 
