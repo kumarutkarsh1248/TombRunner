@@ -175,3 +175,44 @@ window.addEventListener('keydown', (e) => {
     passive: false   // this is optional, my code works without it
 });
 
+
+let touchstartX = 0
+let touchendX = 0
+let touchstartY = 0
+let touchendY = 0
+    
+function checkDirection() {
+    let right = touchendX - touchstartX;
+    let left = -touchendX + touchstartX;
+    let up = -touchendY + touchstartY;
+    let down = touchendY - touchstartY;
+  if (left>0 && left>up && left>down){
+    step.x = -1;
+    step.y = 0;
+  }
+  if (right>0 && right>up && right>down){
+    step.x = 1;
+    step.y = 0;
+  }
+  if (up>0 && up>right && up>left){
+    step.x = 0;
+    step.y = -1;
+  }
+  if (down>0 && down>right && down>left){
+    step.x = 0;
+    step.y = 1;
+  }
+}
+
+document.addEventListener('touchstart', e => {
+  touchstartX = e.changedTouches[0].screenX
+  touchstartY = e.changedTouches[0].screenY
+
+})
+
+document.addEventListener('touchend', e => {
+  touchendX = e.changedTouches[0].screenX
+  touchendY = e.changedTouches[0].screenY
+
+  checkDirection()
+})
