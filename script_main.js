@@ -10,8 +10,9 @@ music.play();
 
 let dog = {x:14, y:178};
 let step ={x:0, y:0};
-let speed = 100;
-let blocks_array = [];
+let speed = 1000;
+let blocks_not_arranged_array = [];
+let blocks_arranged_array = [];
 
 //main game loop
 let go = window.setInterval(move, (1000/speed));
@@ -24,9 +25,9 @@ let element = document.createElement("div");
         game_box.appendChild(element);
 
 //checking wether wall is present in its new position
-function collision(){
+function collision(x, y){
     let collision;
-    blocks_array.forEach(element=>{
+    blocks_arranged_array[y-1].forEach(element=>{
         if((dog.x === element.position.x) && (dog.y === element.position.y)){
             return collision = true;
         }
@@ -47,7 +48,7 @@ function move(){
     // }
     
     //moving the dog only when there is no wall in front
-    if (!collision()){
+    if (!collision(dog.x, dog.y)){
         //redrawing the dog
         document.getElementsByClassName("dog")[0].remove();
         let element = document.createElement("div");
@@ -131,28 +132,51 @@ class Block{
 level_1_maze.forEach(element=>{
     let x_cor = element.grid_column;
     let y_cor = element.grid_row;
-    blocks_array.push(new Block(x_cor, y_cor+(36*4), "block_level1"));
+    blocks_not_arranged_array.push(new Block(x_cor, y_cor+(36*4), "block_level1"));
 })
 level_2_maze.forEach(element=>{
     let x_cor = element.grid_column;
     let y_cor = element.grid_row;
-    blocks_array.push(new Block(x_cor, y_cor+(36*3), "block_level2"));
+    blocks_not_arranged_array.push(new Block(x_cor, y_cor+(36*3), "block_level2"));
 })
 level_3_maze.forEach(element=>{
     let x_cor = element.grid_column;
     let y_cor = element.grid_row;
-    blocks_array.push(new Block(x_cor, y_cor+(36*2), "block_level3"));
+    blocks_not_arranged_array.push(new Block(x_cor, y_cor+(36*2), "block_level3"));
 })
 level_4_maze.forEach(element=>{
     let x_cor = element.grid_column;
     let y_cor = element.grid_row;
-    blocks_array.push(new Block(x_cor, y_cor+(36*1), "block_level4"));
+    blocks_not_arranged_array.push(new Block(x_cor, y_cor+(36*1), "block_level4"));
 })
 level_5_maze.forEach(element=>{
     let x_cor = element.grid_column;
     let y_cor = element.grid_row;
-    blocks_array.push(new Block(x_cor, y_cor+(36*0), "block_level5"));
+    blocks_not_arranged_array.push(new Block(x_cor, y_cor+(36*0), "block_level5"));
+});
+
+//making 2d array for the blocks
+//making array having 180 rows
+for( let i=0; i<180; i++){
+    blocks_arranged_array.push([]);
+}
+//putting element in the rows of the array
+blocks_not_arranged_array.forEach(element=>{
+    blocks_arranged_array[element.position.y-1].push(element);
 })
+//bubble sorting each row of the array
+for(let row=1; row<=180; row++){
+    let array = blocks_arranged_array[row-1];
+    for(let i=0; i<array.length-1; i++){
+        for(let j=0; j<array.length-1; j++){
+            if(array[j].position.x > array[j+1].position.x){
+                let trans = array[j];
+                array[j] = array[j+1];
+                array[j+1] = trans;
+            }
+        }
+    }
+}
 
 window.scrollTo(0, 3000);
 window.addEventListener('keydown', (e) => {

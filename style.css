@@ -48,7 +48,9 @@ canvas{
     background-color: #29f4ea;
     border-radius: 100%;
 }
-
+.roro{
+    background-color: #29f4ea;
+}
 
 @media(max-width: 1000px){
     #game_box{
