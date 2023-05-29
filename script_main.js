@@ -8,7 +8,7 @@ var hit = new Audio("music/hit.mp3");
 var music = new Audio("music/space-jazz.mp3");
 music.play();
 
-let dog = {x:14, y:178};
+let dog = {x:18, y:100};
 let step ={x:0, y:0};
 let speed = 1000;
 let blocks_not_arranged_array = [];
@@ -242,13 +242,13 @@ document.querySelector("#game_box").addEventListener('touchstart', e => {
         window.scrollTo(0, cell*54);
     }
     if(dog.y>=72 && dog.y<=108){
-        window.scrollTo(0, cell*90);
+        window.scrollTo(0, cell*70);
     }
     if(dog.y>=108 && dog.y<=144){
-        window.scrollTo(0, cell*120);
+        window.scrollTo(0, cell*110);
     }
     if(dog.y>=144 && dog.y<=180){
-        window.scrollTo(0, cell*162);
+        window.scrollTo(0, cell*200);
     }
   touchstartX = e.changedTouches[0].screenX
   touchstartY = e.changedTouches[0].screenY
@@ -263,10 +263,10 @@ document.querySelector("#game_box").addEventListener('touchend', e => {
         window.scrollTo(0, cell*54);
     }
     if(dog.y>=72 && dog.y<=108){
-        window.scrollTo(0, cell*90);
+        window.scrollTo(0, cell*70);
     }
     if(dog.y>=108 && dog.y<=144){
-        window.scrollTo(0, cell*120);
+        window.scrollTo(0, cell*110);
     }
     if(dog.y>=144 && dog.y<=180){
         window.scrollTo(0, cell*200);
