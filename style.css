@@ -65,7 +65,7 @@ canvas{
         height: 600vw;
         width: 100vw;
         position:absolute;
-        background: linear-gradient(rgb(0, 0, 0), rgb(61, 60, 60), rgb(0, 0, 0));
+        background: linear-gradient(rgb(194, 85, 85), rgb(61, 60, 60), rgb(0, 0, 0));
         z-index:-1;
     }
 }
