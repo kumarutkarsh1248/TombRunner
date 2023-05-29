@@ -5,8 +5,11 @@ import {level_3_maze} from "./level_blocks/level3.js";
 import {level_4_maze} from "./level_blocks/level4.js";
 import {level_5_maze} from "./level_blocks/level5.js";
 var hit = new Audio("music/hit.mp3");
-var music = new Audio("music/space-jazz.mp3");
-music.play();
+var music = new Audio("music/main.mp3");
+
+window.setInterval(()=>{
+    return music.play();
+}, 1000);
 
 let dog = {x:15, y:179};
 let step ={x:0, y:0};
@@ -63,6 +66,7 @@ function move(){
         step.x = 0;
         step.y = 0;
         hit.play();
+        
         clearInterval(go);
     }
 }
@@ -287,6 +291,4 @@ function preventKeyBoardScroll(e) {
 }
 
   document.querySelector('#game_box').addEventListener('touchmove', preventKeyBoardScroll);
-
-
 
