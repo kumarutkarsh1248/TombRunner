@@ -5,7 +5,7 @@ import {level_3_maze} from "./level_blocks/level3.js";
 import {level_4_maze} from "./level_blocks/level4.js";
 import {level_5_maze} from "./level_blocks/level5.js";
 var hit = new Audio("music/hit.mp3");
-var music = new Audio("music/main_song.mp3");
+var music = new Audio("music/space-jazz.mp3");
 music.play();
 
 let dog = {x:14, y:178};
@@ -13,6 +13,7 @@ let step ={x:0, y:0};
 let speed = 1000;
 let blocks_not_arranged_array = [];
 let blocks_arranged_array = [];
+let cell = document.body.scrollHeight/200
 
 //main game loop
 let go = window.setInterval(move, (1000/speed));
@@ -67,7 +68,6 @@ function move(){
 }
 //listening to the keys
 window.addEventListener("keydown", e=>{
-    let cell = document.body.scrollHeight/200
     if(dog.y>=0 && dog.y<=36){
         window.scrollTo(0, cell*18);
     }
@@ -210,25 +210,31 @@ function checkDirection() {
     let left = -touchendX + touchstartX;
     let up = -touchendY + touchstartY;
     let down = touchendY - touchstartY;
-  if (left>0 && left>up && left>down){
+    console.log(right);
+    console.log(left);
+    console.log(up);
+    console.log(down);
+  if (left>right && left>up && left>down){
     step.x = -1;
     step.y = 0;
   }
-  if (right>0 && right>up && right>down){
+  if (right>left && right>up && right>down){
     step.x = 1;
     step.y = 0;
   }
-  if (up>0 && up>right && up>left){
+  if (up>down && up>right && up>left){
     step.x = 0;
     step.y = -1;
   }
-  if (down>0 && down>right && down>left){
+  if (down>up && down>right && down>left){
     step.x = 0;
     step.y = 1;
   }
+  go = window.setInterval(move, (1000/speed));
 }
 
-document.addEventListener('touchstart', e => {
+document.querySelector("#game_box").addEventListener('touchstart', e => {
+    console.log("touched");
     if(dog.y>=0 && dog.y<=36){
         window.scrollTo(0, cell*18);
     }
@@ -249,7 +255,7 @@ document.addEventListener('touchstart', e => {
 
 })
 
-document.addEventListener('touchend', e => {
+document.querySelector("#game_box").addEventListener('touchend', e => {
     if(dog.y>=0 && dog.y<=36){
         window.scrollTo(0, cell*18);
     }
@@ -263,10 +269,24 @@ document.addEventListener('touchend', e => {
         window.scrollTo(0, cell*120);
     }
     if(dog.y>=144 && dog.y<=180){
-        window.scrollTo(0, cell*162);
+        window.scrollTo(0, cell*200);
     }
   touchendX = e.changedTouches[0].screenX
   touchendY = e.changedTouches[0].screenY
 
   checkDirection()
 })
+
+
+
+
+function preventKeyBoardScroll(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+}
+
+  document.querySelector('#game_box').addEventListener('touchmove', preventKeyBoardScroll);
+
+
+

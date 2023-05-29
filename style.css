@@ -30,7 +30,7 @@ canvas{
     overflow: hidden;
 }
 .block_level1{
-    background-color: #bcb9b9;
+    background-color: #fcfbfb;
 }
 .block_level2{
     background-color: #4d4c4c;
@@ -45,7 +45,7 @@ canvas{
     background-color: #c3c2c2;
 }
 .dog{
-    background-color: #29f4ea;
+    background-color: #ecf861;
     border-radius: 100%;
 }
 .roro{
@@ -54,18 +54,18 @@ canvas{
 
 @media(max-width: 1000px){
     #game_box{
-        height: 600vw;
-        width: 100vw;
+        height: 420vw;
+        width: 70vw;
         /* background-color: rgb(151, 165, 42); */
         display: grid;
         grid-template-columns: repeat(30, 1fr);
         grid-template-rows: repeat(180, 1fr);
     }
     canvas{
-        height: 600vw;
+        height: 420vw;
         width: 100vw;
         position:absolute;
-        background: linear-gradient(rgb(194, 85, 85), rgb(61, 60, 60), rgb(0, 0, 0));
+        background: linear-gradient(rgb(247, 86, 54), rgb(61, 60, 60), rgb(0, 0, 0));
         z-index:-1;
     }
 }

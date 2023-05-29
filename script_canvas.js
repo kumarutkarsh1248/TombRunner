@@ -39,7 +39,7 @@ class Particle{
     }
 } 
 
-const particle1 = new Particle(canvas.width*0.5, canvas.height*0.1, 10, -2, 1.5, "red");
+const particle1 = new Particle(canvas.width*0.5, canvas.height*0.1, 10, -1, 1.5, "red");
 const particle2 = new Particle(canvas.width*0.1, canvas.height*0.9, 20, -2, 1.5, "white");
 const particle3 = new Particle(canvas.width*0.2, canvas.height*0.2, 15, 1, 2, "white");
 const particle4 = new Particle(canvas.width*0.9, canvas.height*0.8, 35, 1, 2, "white");
