@@ -8,7 +8,7 @@ var hit = new Audio("music/hit.mp3");
 var music = new Audio("music/space-jazz.mp3");
 music.play();
 
-let dog = {x:18, y:100};
+let dog = {x:15, y:179};
 let step ={x:0, y:0};
 let speed = 1000;
 let blocks_not_arranged_array = [];
